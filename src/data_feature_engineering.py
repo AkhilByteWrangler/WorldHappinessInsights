@@ -1,4 +1,6 @@
 import pandas as pd
+import warnings
+warnings.filterwarnings("ignore")
 
 def feature_engineering(df):
     """

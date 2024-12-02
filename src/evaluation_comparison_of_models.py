@@ -7,6 +7,8 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.losses import MeanSquaredError
 import joblib
 import os
+import warnings
+warnings.filterwarnings("ignore")
 
 
 def evaluate_model(y_true, y_pred, model_name):

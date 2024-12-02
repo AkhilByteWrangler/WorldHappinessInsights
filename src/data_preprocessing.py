@@ -5,6 +5,8 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 import os
+import warnings
+warnings.filterwarnings("ignore")
 
 def main(file_path, target_column):
     """

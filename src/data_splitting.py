@@ -1,6 +1,8 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import os
+import warnings
+warnings.filterwarnings("ignore")
 
 def split_and_save_processed_data(X_file, y_file, target_column, exclude_columns=['Country name', 'year'], test_size=0.2, random_state=42):
     """

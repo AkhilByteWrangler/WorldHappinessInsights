@@ -6,6 +6,8 @@ from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import LabelEncoder
 import os
 import numpy as np
+import warnings
+warnings.filterwarnings("ignore")
 
 def train_non_dl_model(file_path, target_column, exclude_columns):
     """
