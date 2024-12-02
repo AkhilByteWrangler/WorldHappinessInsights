@@ -12,14 +12,6 @@ import os
 def evaluate_model(y_true, y_pred, model_name):
     """
     Evaluates a model using multiple metrics and returns the results.
-
-    Args:
-        y_true (array): True target values.
-        y_pred (array): Predicted target values.
-        model_name (str): Name of the model being evaluated.
-
-    Returns:
-        dict: Evaluation metrics.
     """
     mse = mean_squared_error(y_true, y_pred)
     mae = mean_absolute_error(y_true, y_pred)
@@ -48,11 +40,6 @@ def evaluate_model(y_true, y_pred, model_name):
 def save_plot(fig, folder, filename):
     """
     Saves a plot to the specified folder with the given filename.
-
-    Args:
-        fig (Figure): Matplotlib figure object.
-        folder (str): Directory to save the plot.
-        filename (str): Name of the file (with extension).
     """
     os.makedirs(folder, exist_ok=True)
     fig.savefig(os.path.join(folder, filename))
@@ -62,12 +49,6 @@ def save_plot(fig, folder, filename):
 def plot_calibration(y_true, y_pred, model_name, folder):
     """
     Plots predicted vs. actual values to assess calibration and saves the plot.
-
-    Args:
-        y_true (array): True target values.
-        y_pred (array): Predicted target values.
-        model_name (str): Name of the model being evaluated.
-        folder (str): Directory to save the plot.
     """
     fig = plt.figure(figsize=(8, 6))
     plt.scatter(y_true, y_pred, alpha=0.6, label='Predictions')
@@ -82,12 +63,6 @@ def plot_calibration(y_true, y_pred, model_name, folder):
 def plot_residuals(y_true, y_pred, model_name, folder):
     """
     Plots residuals for a model to visualize prediction errors and saves the plot.
-
-    Args:
-        y_true (array): True target values.
-        y_pred (array): Predicted target values.
-        model_name (str): Name of the model being evaluated.
-        folder (str): Directory to save the plot.
     """
     residuals = y_true - y_pred
     fig = plt.figure(figsize=(8, 6))
@@ -103,12 +78,6 @@ def plot_residuals(y_true, y_pred, model_name, folder):
 def plot_error_distribution(y_true, y_pred, model_name, folder):
     """
     Plots the distribution of residuals (errors) and saves the plot.
-
-    Args:
-        y_true (array): True target values.
-        y_pred (array): Predicted target values.
-        model_name (str): Name of the model being evaluated.
-        folder (str): Directory to save the plot.
     """
     residuals = y_true - y_pred
     fig = plt.figure(figsize=(8, 6))
@@ -122,11 +91,6 @@ def plot_error_distribution(y_true, y_pred, model_name, folder):
 def feature_importance_plot(model, feature_names, folder):
     """
     Plots the feature importance for tree-based models and saves the plot.
-
-    Args:
-        model: Trained tree-based model (e.g., Random Forest).
-        feature_names (list): List of feature names.
-        folder (str): Directory to save the plot.
     """
     if hasattr(model, 'feature_importances_'):
         importances = model.feature_importances_
@@ -143,7 +107,6 @@ def feature_importance_plot(model, feature_names, folder):
         print("Feature importance is not available for this model.")
 
 
-# Main evaluation script
 if __name__ == "__main__":
     # Paths
     folder = "plots"
